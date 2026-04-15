@@ -1,0 +1,171 @@
+/* Color Variables and Base Setup */
+:root {
+    --bg-darkest: #0f1115;
+    --bg-dark: #161922;
+    --bg-section: #1c1f2b;
+    
+    --color-copper: #e07a33;
+    --color-copper-glow: rgba(224, 122, 51, 0.5);
+    
+    --color-blue: #328bc6;
+    --color-blue-glow: rgba(50, 139, 198, 0.5);
+    
+    --text-main: #ffffff;
+    --text-muted: #aab0c0;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: var(--bg-darkest);
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+/* Background Utility Classes */
+.bg-darkest { background-color: var(--bg-darkest) !important; }
+.bg-dark { background-color: var(--bg-dark) !important; }
+.section-bg-dark { background-color: var(--bg-section) !important; }
+
+/* Text Utility Classes */
+.text-copper { color: var(--color-copper) !important; }
+.text-blue { color: var(--color-blue) !important; }
+
+/* Hover Effects */
+.hover-copper:hover { color: var(--color-copper) !important; transition: 0.3s ease; }
+
+/* Custom Navbar */
+.custom-navbar {
+    background-color: rgba(15, 17, 21, 0.85);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.custom-navbar .nav-link {
+    color: var(--text-main);
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    position: relative;
+    padding-bottom: 5px;
+}
+.custom-navbar .nav-link:hover, .custom-navbar .nav-link.active {
+    color: var(--color-copper);
+}
+.custom-navbar .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--color-copper);
+    transition: width 0.3s ease;
+}
+.custom-navbar .nav-link:hover::after, .custom-navbar .nav-link.active::after {
+    width: 80%;
+}
+
+/* Glowing Buttons */
+.btn-glowing-copper {
+    background: linear-gradient(45deg, #c45b18, #e07a33);
+    color: #fff;
+    border: none;
+    box-shadow: 0 0 15px var(--color-copper-glow);
+    transition: all 0.3s ease;
+}
+.btn-glowing-copper:hover {
+    background: linear-gradient(45deg, #e07a33, #f59656);
+    color: #fff;
+    box-shadow: 0 0 25px var(--color-copper-glow);
+    transform: translateY(-2px);
+}
+
+.btn-outline-glow {
+    background: transparent;
+    border: 1px solid var(--color-blue);
+    color: #fff;
+    box-shadow: 0 0 10px rgba(50, 139, 198, 0.3);
+    transition: all 0.3s ease;
+}
+.btn-outline-glow:hover {
+    background: var(--color-blue);
+    color: #fff;
+    box-shadow: 0 0 20px var(--color-blue-glow);
+    transform: translateY(-2px);
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 100vh;
+    background: url('https://images.unsplash.com/photo-1541888086425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    position: relative;
+}
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to left, rgba(15, 17, 21, 0.9), rgba(15, 17, 21, 0.4));
+    z-index: 0;
+}
+.glow-text {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Glowing Border Cards */
+.border-hover {
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.4s ease;
+    background: rgba(255, 255, 255, 0.02);
+}
+.border-hover:hover {
+    border-color: var(--color-copper);
+    box-shadow: 0 0 20px rgba(224, 122, 51, 0.15), inset 0 0 10px rgba(224, 122, 51, 0.05);
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-5px);
+}
+
+/* Icons */
+.icon-box {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+}
+.border-hover:hover .icon-box {
+    border-color: var(--color-copper);
+    box-shadow: 0 0 15px rgba(224, 122, 51, 0.3);
+}
+
+/* Accent Line */
+.accent-line {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--color-copper), transparent);
+}
+
+/* Project Cards */
+.project-overlay {
+    background: linear-gradient(to top, rgba(15, 17, 21, 0.95), transparent);
+    transition: opacity 0.3s ease;
+}
+.project-card:hover .project-overlay {
+    background: linear-gradient(to top, rgba(224, 122, 51, 0.8), transparent);
+}
+.project-card img {
+    transition: transform 0.5s ease;
+}
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Equipment Cards */
+.equipment-card img {
+    transition: transform 0.5s ease;
+}
+.equipment-card:hover img {
+    transform: scale(1.05);
+}
